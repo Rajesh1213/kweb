@@ -1,0 +1,50 @@
+<div class="form-horizontal" style="padding: 20px; border: 1px solid #ccc; -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
+
+<% unless @resume.nil? or @resume.blank? %>
+  <table class="table table-hover">
+
+    <%= link_to "Edit Profile", edit_resume_path(@resume) , :class => "btn", :style => "margin: 5px;" %>
+
+    <tr class="info">
+      <th align="left">Name: </th><td><%= @resume.name %></td>
+    </tr>
+    <tr>
+      <th align="left">Phone Number: </th><td><%= @resume.phone_number %> </td>
+    </tr>
+    <tr>
+      <th align="left">Date of Birth: </th><td><%= @resume.date_of_birth %> </td>
+    </tr>
+    <tr >
+      <th align="left">Work Experience: </th><td><%= @resume.experience %> Years</td>
+    </tr>
+  </table>
+<% else %>
+
+<div class="alert alert-info">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <h4> Hello <%= current_user.email %>, </h4>
+  Welcome to <strong> Kareer Web </strong>  Kareer Web is the coolest on the web for job seekers and recruters!  </br> </br>
+  It seems that you have not uploaded your resume!  Upload Now 
+</div>
+  <!-- I dont why this code is here -its me rajesh  :P -->
+
+  <!-- <form action="/resumes/upload_file/<%= current_user.id %>" method="post" enctype="multipart/form-data">
+   <p><label for="upload_file">Select File</label>:
+     <input type="file" name="upload" size="50"/></p>
+   <input type="submit" value="Upload"/>
+  </form>   -->
+
+<%= form_tag :url => {:action => "upload_file"}, :id => current_user.id , :multipart => true  do -%>
+
+  <div class="controls">
+    <%= label_tag "Select File " %>
+    <%= file_field_tag "file" %>
+  </div>
+
+  <div class="controls" style="margin-top: 10px;">
+    <%= submit_tag 'Submit', :class=> 'btn btn-success' %>
+  </div>
+
+<% end -%>
+
+<% end %>

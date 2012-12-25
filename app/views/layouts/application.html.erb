@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kareerweb</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<!-- Navbar starts here -->
+<div class="container">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="#"> <strong> Kareer Web  </strong> </a>
+       <% if user_signed_in? %>
+        <ul class="nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Link</a></li>
+          <li><a href="#">Link</a></li>
+        </ul>
+       <% end %> 
+
+      <div class="pull-right" style="margin-top: 8px;">
+        <% if user_signed_in? %>
+          Signed in as <strong> <%= current_user.email %> </strong>. Not you?
+          <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+<!-- Nav Bar Ends Here -->
+<% if alert.present? %>
+  <div class="alert  alert-error">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <p class=""><%= alert %></p>
+  </div>  
+<% elsif notice.present? %>
+  <div class="alert  alert-success">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <p class=""><%= notice %></p>
+  </div>  
+<% end %> 
+
+<%= yield %>
+
+
+
+</div>
+</body>
+</html>

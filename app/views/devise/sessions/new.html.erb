@@ -1,0 +1,35 @@
+<div class="form-horizontal" style="padding: 20px; border: 1px solid #ccc; -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
+
+<div class="controls muted" >
+  <h3> Welcome to Kareer Web! </h3>
+</div>
+<%= form_for(resource, :class => "form-horizontal", :as => resource_name, :url => session_path(resource_name)) do |f| %>
+
+  <div class="control-group">
+	  <%= f.label :email , :class => "control-label" %>
+	  <div class="controls">
+	    <%= f.email_field :email, :placeholder => "Enter Email" %>
+	  </div>
+  </div>
+   
+  <div class="control-group">
+  <%= f.label :password, :class => "control-label" %>
+  <div class="controls">
+ 	<%= f.password_field :password, :placeholder => "Password" %>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="control-group"> <div class="controls"> <%= f.check_box :remember_me %>  Remember Me  </div> </div>
+  <% end -%>
+  
+  <div class="controls">
+    <div><%= f.submit "Sign in"  , :class => "btn btn-info" %></div>
+  </div>
+
+<% end %>
+
+<div class="controls" style="margin-top: 10px;">
+ <%= render "devise/shared/links" %>
+</div> 
+
+</div>
