@@ -17,6 +17,9 @@
     <tr >
       <th align="left">Work Experience: </th><td><%= @resume.experience %> Years</td>
     </tr>
+    <tr >
+      <th align="left">Resume: </th><td><%=raw @resume.resume_content %></td>
+    </tr>
   </table>
 <% else %>
 
@@ -44,7 +47,7 @@
     <%= label_tag "Alternative E-mail" %>
     <%= text_field_tag 'resume[email_id]',nil,  :size => 20 %>
     <%= label_tag "Phone Number" %>
-    <%= number_field_tag 'resume[phone_number]',nil,  :size => 20 %>
+    +91<%= number_field_tag 'resume[phone_number]',nil,  :size => 20 %>
   </div>
 
   <div class="controls" style="margin-top: 10px;">

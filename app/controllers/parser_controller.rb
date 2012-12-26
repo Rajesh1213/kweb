@@ -43,8 +43,49 @@ class ParserController < ApplicationController
 
   def get_content_text(body_element,resume_content)
   	body_element.elements.each("w:r") do |run_element|
+      unless run_element.elements["w:tab"].nil?
+        resume_content = resume_content + "        "
+      end
+
+      unless run_element.elements["w:rPr/w:b"].nil?
+        if run_element.elements["w:rPr/w:b"].attributes["w:val"] != "false"
+          property = "bold"
+        end
+      end
+
+      unless run_element.elements["w:rPr/w:i"].nil?
+        if run_element.elements["w:rPr/w:i"].attributes["w:val"] != "false"
+          property = "italic"
+        end
+      end
+
+      unless run_element.elements["w:rPr/w:u"].nil?
+        if run_element.elements["w:rPr/w:u"].attributes["w:val"] != "false"
+          property = "underline"
+        end
+      end
+
   	  run_element.elements.each("w:t") do |text_element|
-  	  	resume_content = resume_content + text_element.text
+        unless run_element.elements["w:tab"].nil?
+          resume_content = resume_content + "        "
+        end
+        check_if_blank = text_element.text.strip.split(' ').join('')
+        if check_if_blank != ""
+          text_element.text.lstrip!
+          text_element.text.rstrip!
+        end
+        if property == "bold" and check_if_blank != ""
+          resume_content = resume_content + "<b>" + text_element.text + "</b>"
+        elsif property == "italic" and check_if_blank != ""
+          resume_content = resume_content + "<i>" + text_element.text + "</i>"
+        elsif property == "underline" and check_if_blank != ""
+          resume_content = resume_content + "<u>" + text_element.text + "</u>"
+        else
+          resume_content = resume_content + text_element.text
+        end
+        unless run_element.elements["w:tab"].nil?
+          resume_content = resume_content + "        "
+        end
   	  end
   	end
 

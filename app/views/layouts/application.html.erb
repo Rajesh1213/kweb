@@ -14,7 +14,11 @@
       <a class="brand" href="#"> <strong> Kareer Web  </strong> </a>
        <% if user_signed_in? %>
         <ul class="nav">
-          <li class="active"><a href="#">Home</a></li>
+          <% if user_signed_in? %>
+            <li class="active"><a href="/resumes/home/<%= current_user.id %>">Home</a></li>
+          <% else %>
+            <li class="active"><a href="#">Home</a></li>
+          <% end %>
           <li><a href="#">Link</a></li>
           <li><a href="#">Link</a></li>
         </ul>

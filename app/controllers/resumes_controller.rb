@@ -97,7 +97,7 @@ class ResumesController < ApplicationController
       flash[:notice] = "File uploaded successfully"
     else
       FileUtils.rm_r path
-      flash[:notice] = "Please upload a proper file"
+      flash[:notice] = "Please give correct data"
     end
     redirect_to("/resumes/profile/#{current_user.id}")
     # render :text => params.inspect;return
