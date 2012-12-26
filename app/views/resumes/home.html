@@ -1,0 +1,12 @@
+<div class="form-horizontal" style="padding: 20px; border: 1px solid #ccc; -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
+	<%= label_tag "Search" %><input type="text" size="100" maxlength="100"/>
+	<%= submit_tag 'Go', :class=> 'btn btn-success' %>
+	<div class="alert alert-info">
+		<% unless current_user.resume.nil? %>		  
+		  <a href="/resumes/profile/<%= current_user.id %>">View Profile</a>
+		<% else %>
+		  Upload your resume to get nice opportunities.</br></br>
+		  <a href="/resumes/create_profile/<%= current_user.id %>">Create Profile</a>
+		<% end %>
+	</div>
+</div>

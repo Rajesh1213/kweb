@@ -23,7 +23,7 @@
 <div class="alert alert-info">
   <button type="button" class="close" data-dismiss="alert">&times;</button>
   <h4> Hello <%= current_user.email %>, </h4>
-  Welcome to <strong> Kareer Web </strong>  Kareer Web is the coolest on the web for job seekers and recruters!  </br> </br>
+  Welcome to <strong> Kareer Web </strong>  Kareer Web is the coolest on the web for job seekers and recruiters!  </br> </br>
   It seems that you have not uploaded your resume!  Upload Now 
 </div>
   <!-- I dont why this code is here -its me rajesh  :P -->
@@ -34,17 +34,23 @@
    <input type="submit" value="Upload"/>
   </form>   -->
 
-<%= form_tag :url => {:action => "upload_file"}, :id => current_user.id , :multipart => true  do -%>
-
+<%#= form_tag :url => {:action => "upload_file"}, :id => current_user.id , :multipart => true  do -%>
+<form action="/resumes/upload_file/<%= current_user.id %>" method="post" enctype="multipart/form-data">
   <div class="controls">
     <%= label_tag "Select File " %>
     <%= file_field_tag "file" %>
+    <%= label_tag "Name" %>
+    <%= text_field_tag 'resume[name]',nil,  :size => 20 %>
+    <%= label_tag "Alternative E-mail" %>
+    <%= text_field_tag 'resume[email_id]',nil,  :size => 20 %>
+    <%= label_tag "Phone Number" %>
+    <%= number_field_tag 'resume[phone_number]',nil,  :size => 20 %>
   </div>
 
   <div class="controls" style="margin-top: 10px;">
     <%= submit_tag 'Submit', :class=> 'btn btn-success' %>
   </div>
-
-<% end -%>
+</form>
+<%# end -%>
 
 <% end %>
