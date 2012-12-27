@@ -1,0 +1,9 @@
+<div class="form-horizontal" style="padding: 20px; border: 1px solid #ccc; -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
+  <%= label_tag "Search" %><input type="text" size="100" maxlength="100"/>
+  <%= submit_tag 'Go', :class=> 'btn btn-success' %>
+  <div class="alert alert-info">
+	Search candidates as per your requirement.
+  </div>
+  <%= link_to "Post Job Description", post_job_description_path, :class => "btn" %>
+  <%= link_to "View All Job Posts", view_all_posts_path, :class => "btn" %>
+</div>

@@ -1,0 +1,9 @@
+<div class="form-horizontal" style="padding: 20px; border: 1px solid #ccc; -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
+	<% i = 0
+	@job_posts.each do |job| %>
+	  <div class="alert alert-info" style="font-size: 16px;"><%=raw job.job_position %> at <%=raw job.company_name %>
+	  	<div style="font-size: 12px;">Located at <%=raw job.city %>, <%=raw job.country %></div>
+	  </div>	  
+	<% i += 1
+	end %>
+</div>

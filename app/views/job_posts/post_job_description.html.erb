@@ -1,0 +1,15 @@
+<div class="form-horizontal" style="padding: 20px; border: 1px solid #ccc; -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
+  <h2>Post a Job</h2>
+  <%#= form_tag :url => {:action => "save_job_post"}, :id => current_user.id , :multipart => true  do %>
+  <form action="/job_posts/save_job_post/<%= current_user.id %>" method="post" enctype="multipart/form-data">
+	<%= label_tag "Company Name" %><%= text_field_tag 'job_post[company_name]', nil, :size => 40 %>
+	<%= label_tag "Company URL" %><%= text_field_tag 'job_post[company_url]', nil, :size => 40 %>
+	<%= label_tag "Contact email Id" %><%= email_field_tag 'job_post[contact_email]', nil, :size => 40 %>
+	<%= label_tag "Country" %><%= text_field_tag 'job_post[country]', nil, :size => 40 %>
+	<%= label_tag "City" %><%= text_field_tag 'job_post[city]', nil, :size => 40 %>
+	<%= label_tag "Job Position" %><%= text_field_tag 'job_post[job_position]', nil, :size => 40 %>
+	<%= label_tag "Job Description" %><%= text_area_tag 'job_post[job_description]', nil, :cols => 100,:style => 'width:800px; height:150px;' %><br/><br/>
+	<%= submit_tag 'Save', :class=> 'btn btn-success' %>
+  </form>
+  <%# end %>
+</div>

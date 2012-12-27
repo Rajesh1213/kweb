@@ -14,11 +14,9 @@ tmp
 config/database.yml
 db/schema.rb
 log/development.log
+public/
 
 # YARD artifacts
 .yardoc
 _yardoc
 doc/
-config/database.yml
-db/schema.rb
-log/development.log

@@ -100,28 +100,6 @@ class ResumesController < ApplicationController
       flash[:notice] = "Please give correct data"
     end
     redirect_to("/resumes/profile/#{current_user.id}")
-    # render :text => params.inspect;return
-
-    # logger.info"UPLOAD PARAMS #{params.inspect}"
-    # tempfile = params[:upload].tempfile
-    # original_filename = params[:upload].original_filename
-    # upload_path = "public/resumes/#{current_user.id}/"
-    # FileUtils.mkdir_p(upload_path)
-    # path = upload_path + original_filename
-    # FileUtils.cp tempfile.path, path
-    # resume = Resume.new
-    # resume.name = "Surupa"
-    # resume.phone_number = "9032652151".to_i
-    # resume.experience = 3
-    # resume.user_id = current_user.id
-    # if resume.save
-    #   flash[:notice] = "File uploaded successfully"
-    #   redirect_to("/resumes/profile/#{current_user.id}")
-    # else
-    #   FileUtils.rm_r path
-    #   flash[:notice] = "Please upload a proper file"
-    #   redirect_to("/resumes/profile/#{current_user.id}")
-    # end
   end
 
   def save_resume(tempfile,original_filename)

@@ -1,5 +1,7 @@
 Kareerweb::Application.routes.draw do
   
+  resources :job_posts
+
   resources :academics
 
   resources :skills
@@ -7,7 +9,11 @@ Kareerweb::Application.routes.draw do
   devise_for :users
 
   resources :resumes
-  root :to => "resumes#home"
+  root :to => "home#home"
+
+  match '/post_job_description', to: 'job_posts#post_job_description'
+  match '/edit_job_description', to: 'job_posts#edit_job_post'
+  match '/view_all_posts', to: 'job_posts#view_all_posts'
   match '/:controller/:action/:id' => '#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,43 @@
+<div class="form-horizontal" style="padding: 20px; border: 1px solid #ccc; -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
+	<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Company name:</b>
+  <%= @job_post.company_name %>
+</p>
+
+<p>
+  <b>Company url:</b>
+  <%= @job_post.company_url %>
+</p>
+
+<p>
+  <b>Contact email:</b>
+  <%= @job_post.contact_email %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%= @job_post.country %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @job_post.city %>
+</p>
+
+<p>
+  <b>Job position:</b>
+  <%= @job_post.job_position %>
+</p>
+
+<p>
+  <b>Job description:</b>
+  <%= @job_post.job_description %>
+</p>
+
+
+<%= link_to 'Edit', edit_job_description_path(@job_post) %> |
+<%= link_to 'Back', post_job_description_path %>
+
+</div>

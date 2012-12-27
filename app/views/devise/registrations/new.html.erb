@@ -29,6 +29,14 @@
 	  	</div>
 	  </div>
 
+	  <div class="control-group"> 
+	  <%= f.label :type_of_user , :class => "control-label" %>
+	  	<div class="controls">
+  			<%= f.radio_button :type_of_user, "job_seeker" %>Job Seeker<br/>
+  			<%= f.radio_button :type_of_user, "recruiter" %>Recruiter
+	  	</div>
+	  </div>
+
 	  <div class="controls"><%= f.submit "Sign up" , :class => 'btn btn-info' %></div>
 	<% end %>
 
