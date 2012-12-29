@@ -120,4 +120,11 @@ class ResumesController < ApplicationController
     
   end
 
+  def add_new_language
+    logger.info"params #{params.inspect}"
+    language = Language.new(:params[:language])
+    language.user_id = params[:id]
+    language.save
+  end
+
 end

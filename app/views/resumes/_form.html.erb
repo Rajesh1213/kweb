@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :summary %><br />
-    <%= f.text_area :summary, :cols => 500, :style => 'width: 500px;' %>
+    <%= f.text_area :summary, :style => 'width: 500px; height: 80px;' %>
   </div>
   <div class="field">
     <%= f.label :phone_number %><br />
@@ -29,11 +29,32 @@
   </div>
   <div class="field">
     <%= f.label :date_of_birth %><br />
-    <%= f.date_select :date_of_birth %>
+    <%= f.date_select :date_of_birth, :start_year => 1980 %>
   </div>
   <div class="field">
     <%= f.label :experience %><br />
     <%= f.number_field :experience %>
+  </div>
+  <div class="field">
+    <%= f.label :company_location %><br />
+    <%= f.text_field :company_location %>
+  </div>
+  <div class="field">
+    <%= f.label :current_employer %><br />
+    <%= f.text_field :current_employer %>
+  </div>
+  <div class="field">
+    <%= f.label :designation %><br />
+    <%= f.text_field :designation %>
+  </div>
+  <div class="field">
+    <%= f.label :technology %><br />
+    <%= f.text_field :technology %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br />
+    <%= f.radio_button :gender, "male" %>Male<br/>
+    <%= f.radio_button :gender, "female" %>Female
   </div>
   <div class="actions">
     <%= f.submit %>

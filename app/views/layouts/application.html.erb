@@ -16,11 +16,11 @@
         <ul class="nav">
           <% if user_signed_in? %>
             <li class="active"><%= link_to "Home", root_path %></li>
+            <li ><%= link_to "Profile", view_profile_path %></li>
           <% else %>
             <li class="active"><%= link_to "Home", '#' %></li>
+            <li ><%= link_to "Profile", "#" %></li>
           <% end %>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
         </ul>
        <% end %> 
 

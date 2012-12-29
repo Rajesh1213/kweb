@@ -12,8 +12,8 @@ class CreateResumes < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :resumes, :name,       :unique => true
+    add_index :resumes, :name
     add_index :resumes, :user_id,    :unique => true
-    add_index :resumes, :experience, :unique => true
+    add_index :resumes, :experience
   end
 end

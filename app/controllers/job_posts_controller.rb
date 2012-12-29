@@ -85,6 +85,7 @@ class JobPostsController < ApplicationController
   def save_job_post
     logger.info">>> in save_job_post  #{params.inspect}"
     job_post = JobPost.new(params[:job_post])
+    job_post.user_id = current_user.id
     if job_post.save
       flash[:notice] = "Job posted successfully"
       redirect_to("/job_posts/view_post/#{job_post.id}")
@@ -103,7 +104,7 @@ class JobPostsController < ApplicationController
   end
 
   def view_all_posts
-    @job_posts = JobPost.all
+    @job_posts = current_user.job_posts
   end
     
 end

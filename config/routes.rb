@@ -23,7 +23,9 @@ Kareerweb::Application.routes.draw do
   match '/edit_job_description', to: 'job_posts#edit_job_description'
   match '/view_all_posts', to: 'job_posts#view_all_posts'
 
-  match '/profile', to: 'resumes#profile'
+  match '/view_profile', to: 'resumes#profile'
+  match '/create_profile', to: 'resumes#create_profile'
+
   match '/:controller/:action/:id' => '#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
