@@ -1,4 +1,5 @@
 class JobPostsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /job_posts
   # GET /job_posts.json
   def index

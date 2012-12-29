@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Degree:</b>
+  <%= @qualification_detail.degree %>
+</p>
+
+<p>
+  <b>Institute:</b>
+  <%= @qualification_detail.institute %>
+</p>
+
+<p>
+  <b>University:</b>
+  <%= @qualification_detail.university %>
+</p>
+
+<p>
+  <b>Course name:</b>
+  <%= @qualification_detail.course_name %>
+</p>
+
+<p>
+  <b>Year of passout:</b>
+  <%= @qualification_detail.year_of_passout %>
+</p>
+
+<p>
+  <b>From:</b>
+  <%= @qualification_detail.from %>
+</p>
+
+<p>
+  <b>To:</b>
+  <%= @qualification_detail.to %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @qualification_detail.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_qualification_detail_path(@qualification_detail) %> |
+<%= link_to 'Back', qualification_details_path %>

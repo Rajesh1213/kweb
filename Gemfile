@@ -5,7 +5,9 @@ gem 'rails', '3.2.8'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+group :development do
+  gem 'mysql2'
+end
 
 
 # Gems used only for assets and not required
@@ -25,6 +27,12 @@ gem 'devise'
 gem 'execjs'
 gem 'therubyracer'
 gem 'rubyzip'
+
+group :production do
+  # gem 'therubyracer-heroku', '0.8.1.pre3'
+  gem 'pg', '0.12.2'
+  #gem 'activerecord-postgresql-adapter'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

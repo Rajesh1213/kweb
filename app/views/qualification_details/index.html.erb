@@ -1,0 +1,37 @@
+<h1>Listing qualification_details</h1>
+
+<table>
+  <tr>
+    <th>Degree</th>
+    <th>Institute</th>
+    <th>University</th>
+    <th>Course name</th>
+    <th>Year of passout</th>
+    <th>From</th>
+    <th>To</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @qualification_details.each do |qualification_detail| %>
+  <tr>
+    <td><%= qualification_detail.degree %></td>
+    <td><%= qualification_detail.institute %></td>
+    <td><%= qualification_detail.university %></td>
+    <td><%= qualification_detail.course_name %></td>
+    <td><%= qualification_detail.year_of_passout %></td>
+    <td><%= qualification_detail.from %></td>
+    <td><%= qualification_detail.to %></td>
+    <td><%= qualification_detail.user_id %></td>
+    <td><%= link_to 'Show', qualification_detail %></td>
+    <td><%= link_to 'Edit', edit_qualification_detail_path(qualification_detail) %></td>
+    <td><%= link_to 'Destroy', qualification_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Qualification detail', new_qualification_detail_path %>

@@ -1,0 +1,49 @@
+<%= form_for(@qualification_detail) do |f| %>
+  <% if @qualification_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@qualification_detail.errors.count, "error") %> prohibited this qualification_detail from being saved:</h2>
+
+      <ul>
+      <% @qualification_detail.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :degree %><br />
+    <%= f.text_field :degree %>
+  </div>
+  <div class="field">
+    <%= f.label :institute %><br />
+    <%= f.text_field :institute %>
+  </div>
+  <div class="field">
+    <%= f.label :university %><br />
+    <%= f.text_field :university %>
+  </div>
+  <div class="field">
+    <%= f.label :course_name %><br />
+    <%= f.text_field :course_name %>
+  </div>
+  <div class="field">
+    <%= f.label :year_of_passout %><br />
+    <%= f.number_field :year_of_passout %>
+  </div>
+  <div class="field">
+    <%= f.label :from %><br />
+    <%= f.date_select :from %>
+  </div>
+  <div class="field">
+    <%= f.label :to %><br />
+    <%= f.date_select :to %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
