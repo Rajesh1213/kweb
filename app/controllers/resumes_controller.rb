@@ -80,7 +80,6 @@ class ResumesController < ApplicationController
   def profile
     @resume = current_user.resume
     @skills = current_user.skills
-    @academics = current_user.academics
   end
 
   def upload_file
