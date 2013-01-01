@@ -16,7 +16,8 @@
         <ul class="nav">
           <% if user_signed_in? %>
             <li class="active"><%= link_to "Home", root_path %></li>
-            <li ><%= link_to "Profile", view_profile_path %></li>
+            <% if current_user.type_of_user == "job_seeker" %><li ><%= link_to "Profile", view_profile_path %></li><% else %>
+            <li ><%= link_to "Job Posts", view_all_posts_path %></li><% end %>
           <% else %>
             <li class="active"><%= link_to "Home", '#' %></li>
             <li ><%= link_to "Profile", "#" %></li>

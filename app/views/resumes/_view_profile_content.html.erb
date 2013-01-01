@@ -1,0 +1,40 @@
+    <%=stylesheet_link_tag 'profiles' %>
+    <%= link_to "Edit Profile", edit_resume_path(@resume) , :class => "btn", :style => "margin: 5px;" %>
+    <div id="profile_details">
+
+      <% if @resume.gender == "male" %><%= image_tag "male.jpg" %><% else %><%= image_tag "female.jpg" %><% end %>
+      <div id="name">
+        <%= @resume.name %>
+      </div>
+      <div id="personal_details">
+        <h4>
+          Personal Details
+        </h4>
+        <h6>
+          Date of Birth: <%= @resume.date_of_birth %> <br/>
+          Gender: <%= @resume.gender %> <br/>
+          Languages: <%= @resume.languages %>
+        </h6>
+      </div>
+    </div>
+    <div id="contact_details">
+      <h4>Contact Details</h4>
+      <h6>
+        <%= @resume.address %> <br/>
+                <%= @resume.address_city %> <br/>
+                <%= @resume.pin_code %> <br/>
+        Email: <%= @resume.user.email %> <br/>
+        <% unless @resume.email_id.blank? %>
+        Alternate Email: <%= @resume.email_id %> <br/>
+        <% end %>
+        Phone Number: <%= @resume.phone_number %>
+      </h6>
+    </div>
+    <table class="table table-hover">
+      <tr>
+        <th align="left">Work Experience:</th><td><%= @resume.experience %> Years</td>
+      </tr>
+      <tr>
+        <th align="left">Resume: </th><td><%=raw @resume.resume_content %></td>
+      </tr>
+    </table>

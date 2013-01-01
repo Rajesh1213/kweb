@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<div class="form-horizontal" style="padding: 20px; border: 1px solid #ccc; -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
 
 <p>
   <b>Company name:</b>
@@ -32,9 +32,10 @@
 
 <p>
   <b>Job description:</b>
-  <%= @job_post.job_description %>
+  <%=raw @job_post.job_description %>
 </p>
 
 
 <%= link_to 'Edit', edit_job_post_path(@job_post) %> |
-<%= link_to 'Back', job_posts_path %>
+<%= link_to 'Back', view_all_posts_path %>
+</div>

@@ -1,9 +1,23 @@
 <div class="form-horizontal" style="padding: 20px; border: 1px solid #ccc; -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
-  <%= label_tag "Search" %><input type="text" size="100" maxlength="100"/>
-  <%= submit_tag 'Go', :class=> 'btn btn-success' %>
-  <div class="alert alert-info">
-	Search candidates as per your requirement.
+  
+  <%= form_tag root_path, :method => :get do %>
+  <%= label_tag "Search" %> <div style="font-size: 10px; color: gray;">Search candidates as per your requirement.  </div>
+  <% unless params[:keywords].blank? %>
+    <%= text_field_tag 'keywords',nil,  :size => 40, :maxlength => 50, :value => params[:keywords] %>
+  <% else %>
+    <%= text_field_tag 'keywords',nil,  :size => 40, :maxlength => 50, :placeholder => "Keywords" %>
+  <% end %>
+  <%= submit_tag 'Search', :class=> 'btn btn-success' %><br/><br/>
+  <div>
+    <% i = 0
+    @resumes.each do |resume| %>
+    <div class="alert alert-info" style="font-size: 16px;"><a href="/resumes/profile/<%= resume.user_id %>"><%=raw resume.name %> working at <%=raw resume.current_employer %> as <%= resume.designation %></a>
+      <div style="font-size: 12px;">Located at <%=raw resume.company_location %></div>
+    </div>    
+    <% i += 1
+    end %>
   </div>
+  <% end %>  
   <%= link_to "Post Job Description", post_job_description_path, :class => "btn" %>
   <%= link_to "View All Job Posts", view_all_posts_path, :class => "btn" %>
 </div>

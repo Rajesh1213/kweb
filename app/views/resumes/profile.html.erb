@@ -1,37 +1,8 @@
 <div class="form-horizontal" style="padding: 20px; border: 1px solid #ccc; -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
 
   <% unless @resume.nil? or @resume.blank? %>
-  <table class="table table-hover">
-
-    <%= link_to "Edit Profile", edit_resume_path(@resume) , :class => "btn", :style => "margin: 5px;" %>
-
-    <tr>
-      <td rowspan="3"><% if @resume.gender == "male" %><%= image_tag "male.jpg" %><% else %><%= image_tag "female.jpg" %><% end %></td>
-      <td  class="info" align="left"><%= @resume.name %></td>        
-    </tr>
-    <tr>
-      <td>Date of Birth: </td><td><%= @resume.date_of_birth %> </td>
-    </tr>
-    <tr>
-      <td>Gender: </td><td><%= @resume.gender %></td>
-    </tr>
-    <tr><td></td></tr>
-    <tr>
-      <th align="left">Email: </th><td><%= current_user.email %></td>
-    </tr>
-    <tr>
-      <th align="left">Phone Number: </th><td><%= @resume.phone_number %> </td>
-    </tr>
-
-    <tr >
-      <th align="left">Work Experience: </th><td><%= @resume.experience %> Years</td>
-    </tr>
-    <tr >
-      <th align="left">Resume: </th><td><%=raw @resume.resume_content %></td>
-    </tr>
-  </table>
+    <%= render "view_profile_content" %>
   <% else %>
-
-  <%= render "profile_content" %>
-
+    <%= render "profile_content" %>
   <% end %>
+</div>

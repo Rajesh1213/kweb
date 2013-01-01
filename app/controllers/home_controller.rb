@@ -16,10 +16,22 @@ class HomeController < ApplicationController
 	protected
 
 	def job_seeker_home
+		logger.info"PARAMS >>> #{params.inspect}"
+	    @search = JobPost.search do
+	      fulltext params[:keywords]
+	    end
+	    @job_posts = @search.results
+    	logger.info"@job_posts #{@job_posts.inspect}"
 		render(:template => "/resumes/home")
 	end
 
 	def recruiter_home
+		logger.info"PARAMS >>> #{params.inspect}"
+	    @search = Resume.search do
+	      fulltext params[:keywords]
+	    end
+	    @resumes = @search.results
+    	logger.info"@resumes #{@resumes.inspect}"
 		render(:template => "/job_posts/home")
 	end
 

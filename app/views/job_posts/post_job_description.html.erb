@@ -8,7 +8,7 @@
 	<%= label_tag "Country" %><%= text_field_tag 'job_post[country]', nil, :size => 40 %>
 	<%= label_tag "City" %><%= text_field_tag 'job_post[city]', nil, :size => 40 %>
 	<%= label_tag "Job Position" %><%= text_field_tag 'job_post[job_position]', nil, :size => 40 %>
-	<%= label_tag "Job Description" %><%= text_area_tag 'job_post[job_description]', nil, :cols => 100,:style => 'width:800px; height:150px;' %><br/><br/>
+	<%= label_tag "Job Description" %><%=raw text_area_tag 'job_post[job_description]', nil, :cols => 100,:style => 'width:800px; height:150px;' %><br/><br/>
 	<%= submit_tag 'Save', :class=> 'btn btn-success' %>
   </form>
   <%# end %>

@@ -16,14 +16,13 @@
     <%= label_tag "Phone Number" %>
     +91<%= number_field_tag 'resume[phone_number]',nil,  :size => 20 %>
     <%= label_tag :date_of_birth %><br />
-    <%#= date_select_tag 'resume[date_of_birth]', :start_year => 1980 %>
+    <%= date_select 'resume[date_of_birth]',nil, :start_year => 1980 %>
     <%= label_tag :gender %><br />
     <%= radio_button_tag 'resume[gender]', "male", :checked => true %>Male<br/>
     <%= radio_button_tag 'resume[gender]', "female" %>Female
 
     <%= label_tag "Languages Known" %><br />
-    <%= text_field_tag :language_name,nil,  :size => 20 %>
-    <input type="button" onclick="new Ajax.Request('/languages/add_new_language/'+<%= current_user.id %>,{asynchronous:true, evalScripts:true, parameters:Form.serialize(this)})" value="Add"/>
+    <%= text_field_tag :language,nil,  :size => 20 %>
 
     <%= label_tag :address %><br />
     <%= text_area_tag 'resume[address]' %>
@@ -40,6 +39,8 @@
     <%= text_field_tag 'resume[designation]',nil,  :size => 20 %>
     <%= label_tag :technology %><br />
     <%= text_field_tag 'resume[technology]',nil,  :size => 20 %>
+    <%= label_tag :previous_company %><br />
+    <%= text_field_tag 'resume[previous_company]',nil,  :size => 20 %>
     <%= label_tag "Total Experience" %><br />
     <%= number_field_tag 'resume[experience]',nil,  :size => 20 %>
 

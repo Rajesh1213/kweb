@@ -1,5 +1,6 @@
 class JobPostsController < ApplicationController
   before_filter :authenticate_user!
+  skip_before_filter :verify_authenticity_token, :only => "save_job_post"
   # GET /job_posts
   # GET /job_posts.json
   def index
@@ -85,7 +86,7 @@ class JobPostsController < ApplicationController
   def save_job_post
     logger.info">>> in save_job_post  #{params.inspect}"
     job_post = JobPost.new(params[:job_post])
-    job_post.user_id = current_user.id
+    job_post.user_id = params[:id]
     if job_post.save
       flash[:notice] = "Job posted successfully"
       redirect_to("/job_posts/view_post/#{job_post.id}")

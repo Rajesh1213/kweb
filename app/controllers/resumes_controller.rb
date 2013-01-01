@@ -78,8 +78,7 @@ class ResumesController < ApplicationController
   end
 
   def profile
-    @resume = current_user.resume
-    @skills = current_user.skills
+    @resume = Resume.find(params[:id])
   end
 
   def upload_file
@@ -93,6 +92,7 @@ class ResumesController < ApplicationController
     resume.user_id = current_user.id
     resume.resume_content = resume_content
     if resume.save
+      save_languages(params[:language])
       flash[:notice] = "File uploaded successfully"
     else
       FileUtils.rm_r path
@@ -120,11 +120,15 @@ class ResumesController < ApplicationController
     
   end
 
-  def add_new_language
-    logger.info"params #{params.inspect}"
-    language = Language.new(:params[:language])
-    language.user_id = params[:id]
-    language.save
+  def save_languages(languages)
+    unless languages.blank?
+      languages.split(',').each do |language|
+        l = Language.new
+        l.language_name = language
+        l.user_id = current_user.id
+        l.save
+      end
+    end
   end
 
 end

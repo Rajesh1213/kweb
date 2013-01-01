@@ -7,6 +7,7 @@ gem 'rails', '3.2.8'
 
 group :development do
   gem 'mysql2'
+  gem 'sunspot_solr'
 end
 
 
@@ -27,6 +28,8 @@ gem 'devise'
 gem 'execjs'
 gem 'therubyracer'
 gem 'rubyzip'
+
+gem 'sunspot_rails'
 
 group :production do
   # gem 'therubyracer-heroku', '0.8.1.pre3'

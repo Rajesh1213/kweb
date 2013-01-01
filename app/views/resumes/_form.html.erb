@@ -28,6 +28,18 @@
     <%= f.text_field :email_id %>
   </div>
   <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_area :address, :style => 'height: 80px;' %>
+  </div>
+  <div class="field">
+    <%= f.label "City" %><br />
+    <%= f.text_field :address_city %>
+  </div>
+  <div class="field">
+    <%= f.label :pin_code %><br />
+    <%= f.number_field :pin_code %>
+  </div>
+  <div class="field">
     <%= f.label :date_of_birth %><br />
     <%= f.date_select :date_of_birth, :start_year => 1980 %>
   </div>
@@ -46,15 +58,26 @@
   <div class="field">
     <%= f.label :designation %><br />
     <%= f.text_field :designation %>
-  </div>
+  </div>  
   <div class="field">
     <%= f.label :technology %><br />
     <%= f.text_field :technology %>
+  </div>  
+  <div class="field">
+    <%= f.label :previous_company %><br />
+    <%= f.text_field :previous_company %>
   </div>
   <div class="field">
     <%= f.label :gender %><br />
     <%= f.radio_button :gender, "male" %>Male<br/>
     <%= f.radio_button :gender, "female" %>Female
+  </div>
+  <div class="field">
+    <% unless current_user.languages.blank?
+    current_user.languages.each do |language| %>
+      <%= f.text_field :language %>
+    <% end
+    end %>
   </div>
   <div class="actions">
     <%= f.submit %>

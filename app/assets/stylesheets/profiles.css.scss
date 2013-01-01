@@ -1,3 +1,32 @@
 // Place all the styles related to the profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#profile_details{
+	height: 235px;
+	margin-top:10px;
+	
+	position: relative;
+	img{
+		vertical-align: top;
+		float: left;
+	}
+	#name{
+		font-size: 28px;
+		margin-left: 40px;
+		float : left;
+	}
+	#personal_details{
+		width: 400px;
+		margin-left: 625px;
+		h4,h6{
+			font-weight: normal;
+		}
+	}
+}
+#contact_details{
+	margin: 10px 0px;
+	h4,h6{
+		font-weight: normal;
+	}
+}
