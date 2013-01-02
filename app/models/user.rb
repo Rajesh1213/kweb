@@ -20,4 +20,5 @@ class User < ActiveRecord::Base
 
   # When type of user is recruiter
   has_many  :job_posts
+  has_many  :profile_views
 end

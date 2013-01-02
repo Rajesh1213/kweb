@@ -5,4 +5,7 @@
   <% else %>
     <%= render "profile_content" %>
   <% end %>
+  <% if current_user.type_of_user == "recruiter" %>
+  	<a href="" onclick="history.go(-1)">Back</a>
+  <% end %>
 </div>

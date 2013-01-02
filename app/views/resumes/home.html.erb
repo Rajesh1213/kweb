@@ -27,13 +27,14 @@
       	<h6>Current Company: <%= current_user.resume.current_employer %><% unless current_user.resume.previous_company.blank? %><br/>
 		Previous Company: <%= current_user.resume.previous_company %><br/><% end %><br/>
 		<%= image_tag "mobile.jpeg", :size => "8x9", :style => "margin-right: 3px;" %>&nbsp;<%= current_user.resume.phone_number %><br/>
-		<%= image_tag "email.jpeg", :size => "11x12", :style => "margin-top: 6px;" %>&nbsp;<%= current_user.email %></h6>		
+		<%= image_tag "email.jpeg", :size => "11x12", :style => "margin-top: 6px;" %>&nbsp;<%= current_user.email %></h6>
+		<% unless current_user.profile.nil? %>
+		  <h5>Views(<%= current_user.profile.views %>)&nbsp;Downloads(<%= current_user.profile.downloads %>)&nbsp;Contacts(<%= current_user.profile.contacts %>)</h5>
+		<% end %>	
       </div>
     </div>
     <%= link_to 'View Profile', view_profile_path, :class => "btn", :style => "margin: 5px;" %>
-	<%= link_to "Edit Profile", edit_resume_path(current_user.resume) , :class => "btn", :style => "margin: 5px;" %>
-	<% unless current_user.profile.nil? %>Views(<%= current_user.profile.views %>)Downloads(<%= current_user.profile.downloads %>)Contacts(<%= current_user.profile.contacts %>)
-	<% end %>
+	<%= link_to "Edit Profile", edit_resume_path(current_user.resume) , :class => "btn", :style => "margin: 5px;" %>		
 	<% else %>
 	<%= link_to 'Create Profile', create_profile_path, :class => "btn", :style => "margin: 5px;" %>
 	<% end %>

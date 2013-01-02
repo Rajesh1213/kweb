@@ -78,7 +78,12 @@ class ResumesController < ApplicationController
   end
 
   def profile
-    @resume = current_user.resume
+    if current_user.type_of_user == "job_seeker"
+      @resume = current_user.resume
+    else
+      @resume = Resume.find(params[:id])
+      @resume.increase_view_count(current_user,params[:id])
+    end
   end
 
   def upload_file
