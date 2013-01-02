@@ -3,8 +3,10 @@ class JobPost < ActiveRecord::Base
   belongs_to	:user
 
   searchable do
+  	text :company_name
 	text :city
 	text :job_description
 	text :job_position
+	time :updated_at
   end
 end

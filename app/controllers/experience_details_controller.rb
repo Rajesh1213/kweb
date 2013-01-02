@@ -1,4 +1,5 @@
 class ExperienceDetailsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /experience_details
   # GET /experience_details.json
   def index
@@ -40,32 +41,33 @@ class ExperienceDetailsController < ApplicationController
   # POST /experience_details
   # POST /experience_details.json
   def create
+    logger.info"PARAMS in create >>  #{params.inspect}"
     @experience_detail = ExperienceDetail.new(params[:experience_detail])
 
-    respond_to do |format|
-      if @experience_detail.save
-        format.html { redirect_to @experience_detail, notice: 'Experience detail was successfully created.' }
-        format.json { render json: @experience_detail, status: :created, location: @experience_detail }
+    if @experience_detail.save
+      flash[:notice] = "Experience details created successfully"
+      if params[:commit] == "Done"
+        redirect_to("/qualification_details/new/#{current_user.id}")
       else
-        format.html { render action: "new" }
-        format.json { render json: @experience_detail.errors, status: :unprocessable_entity }
+        redirect_to("/experience_details/new/#{current_user.id}")
       end
+    else
+      render action: "new"
     end
   end
 
   # PUT /experience_details/1
   # PUT /experience_details/1.json
   def update
+    logger.info"PARAMS #{params.inspect}"
     @experience_detail = ExperienceDetail.find(params[:id])
-
-    respond_to do |format|
-      if @experience_detail.update_attributes(params[:experience_detail])
-        format.html { redirect_to @experience_detail, notice: 'Experience detail was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @experience_detail.errors, status: :unprocessable_entity }
-      end
+    
+    if @experience_detail.update_attributes(params[:experience_detail])
+      flash[:notice] = "Experience details updated successfully"
+      redirect_to("/resumes/profile/#{current_user.id}")
+    else
+      flash[:notice] = "Give proper data"
+      redirect_to("/experience_details/edit/#{params[:id]}")
     end
   end
 

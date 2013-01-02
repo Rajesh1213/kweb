@@ -31,6 +31,8 @@ gem 'rubyzip'
 
 gem 'sunspot_rails'
 
+gem "will_paginate", "~> 3.0.pre2"
+
 group :production do
   # gem 'therubyracer-heroku', '0.8.1.pre3'
   gem 'pg', '0.12.2'

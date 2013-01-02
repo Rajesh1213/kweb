@@ -10,8 +10,6 @@ Kareerweb::Application.routes.draw do
 
   resources :job_posts
 
-  resources :academics
-
   resources :skills
 
   devise_for :users

@@ -1,3 +1,25 @@
+<% unless current_user.qualification_details.blank? %>
+  <table class="table table-hover">
+    <th>Degree</th>
+    <th>Institute</th>
+    <th>University</th>
+    <th>Course Name</th>
+    <th>Year of Passout</th>
+    <th>From</th>
+    <th>To</th>
+    <% current_user.qualification_details.each do |qualification| %>
+      <tr>
+        <td><%= qualification.degree %></td>
+        <td><%= qualification.institute %></td>
+        <td><%= qualification.university %></td>
+        <td><%= qualification.course_name %></td>
+        <td><%= qualification.year_of_passout %></td>
+        <td><%= qualification.from %></td>
+        <td><%= qualification.to %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
 <%= form_for(@qualification_detail) do |f| %>
   <% if @qualification_detail.errors.any? %>
     <div id="error_explanation">
@@ -33,17 +55,19 @@
   </div>
   <div class="field">
     <%= f.label :from %><br />
-    <%= f.date_select :from %>
+    <%= f.date_select :from, :start_year => 1980 %>
   </div>
   <div class="field">
     <%= f.label :to %><br />
-    <%= f.date_select :to %>
+    <%= f.date_select :to, :start_year => 1980 %>
   </div>
   <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
   </div>
   <div class="actions">
     <%= f.submit %>
+  </div>
+  <div class="controls" style="margin-top: 10px;">
+    <%= submit_tag 'Done', :class=> 'btn btn-success' %>
   </div>
 <% end %>

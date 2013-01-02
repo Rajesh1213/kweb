@@ -78,7 +78,7 @@ class ResumesController < ApplicationController
   end
 
   def profile
-    @resume = Resume.find(params[:id])
+    @resume = current_user.resume
   end
 
   def upload_file
@@ -92,13 +92,13 @@ class ResumesController < ApplicationController
     resume.user_id = current_user.id
     resume.resume_content = resume_content
     if resume.save
-      save_languages(params[:language])
       flash[:notice] = "File uploaded successfully"
+      redirect_to("/experience_details/new/#{current_user.id}")
     else
       FileUtils.rm_r path
       flash[:notice] = "Please give correct data"
+      redirect_to("/resumes/profile/#{current_user.id}")
     end
-    redirect_to("/resumes/profile/#{current_user.id}")
   end
 
   def save_resume(tempfile,original_filename)
@@ -118,17 +118,6 @@ class ResumesController < ApplicationController
 
   def create_profile
     
-  end
-
-  def save_languages(languages)
-    unless languages.blank?
-      languages.split(',').each do |language|
-        l = Language.new
-        l.language_name = language
-        l.user_id = current_user.id
-        l.save
-      end
-    end
   end
 
 end

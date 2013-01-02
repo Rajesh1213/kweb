@@ -1,4 +1,5 @@
 class QualificationDetailsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /qualification_details
   # GET /qualification_details.json
   def index
@@ -42,14 +43,15 @@ class QualificationDetailsController < ApplicationController
   def create
     @qualification_detail = QualificationDetail.new(params[:qualification_detail])
 
-    respond_to do |format|
-      if @qualification_detail.save
-        format.html { redirect_to @qualification_detail, notice: 'Qualification detail was successfully created.' }
-        format.json { render json: @qualification_detail, status: :created, location: @qualification_detail }
+    if @qualification_detail.save
+      flash[:notice] = "Qualification details created successfully"
+      if params[:commit] == "Done"
+        redirect_to("/resumes/profile/#{current_user.id}")
       else
-        format.html { render action: "new" }
-        format.json { render json: @qualification_detail.errors, status: :unprocessable_entity }
+        redirect_to("/qualification_details/new/#{current_user.id}")
       end
+    else
+      render action: "new"
     end
   end
 

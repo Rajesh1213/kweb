@@ -22,7 +22,7 @@
     <%= radio_button_tag 'resume[gender]', "female" %>Female
 
     <%= label_tag "Languages Known" %><br />
-    <%= text_field_tag :language,nil,  :size => 20 %>
+    <%= text_field_tag 'resume[languages]',nil,  :size => 20 %>
 
     <%= label_tag :address %><br />
     <%= text_area_tag 'resume[address]' %>
@@ -39,12 +39,18 @@
     <%= text_field_tag 'resume[designation]',nil,  :size => 20 %>
     <%= label_tag :technology %><br />
     <%= text_field_tag 'resume[technology]',nil,  :size => 20 %>
+    <%= label_tag :current_annual_salary %><br />
+    <%= number_field_tag 'resume[current_annual_salary]',nil,  :size => 20 %>
     <%= label_tag :previous_company %><br />
     <%= text_field_tag 'resume[previous_company]',nil,  :size => 20 %>
     <%= label_tag "Total Experience" %><br />
     <%= number_field_tag 'resume[experience]',nil,  :size => 20 %>
-
-    
+    <%= label_tag :skills %><br />
+    <%= text_field_tag 'resume[skills]',nil,  :size => 20 %>
+    <%= label_tag :highest_degree %><br />
+    <%= text_field_tag 'resume[highest_degree]',nil,  :size => 20 %>    
+    <%= label_tag :preferred_job_location %><br />
+    <%= text_field_tag 'resume[preferred_job_location]',nil,  :size => 20 %>
 	</div>
 
 	<div class="controls" style="margin-top: 10px;">
