@@ -31,6 +31,7 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
+    choice (0.1.6)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -73,6 +74,7 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
+    railroad (0.5.0)
     rails (3.2.8)
       actionmailer (= 3.2.8)
       actionpack (= 3.2.8)
@@ -81,6 +83,11 @@ GEM
       activesupport (= 3.2.8)
       bundler (~> 1.0)
       railties (= 3.2.8)
+    rails-erd (1.0.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      choice (~> 0.1.6)
+      ruby-graphviz (~> 1.0.4)
     railties (3.2.8)
       actionpack (= 3.2.8)
       activesupport (= 3.2.8)
@@ -93,6 +100,7 @@ GEM
       json (~> 1.4)
     rsolr (1.0.8)
       builder (>= 2.1.2)
+    ruby-graphviz (1.0.8)
     rubyzip (0.9.9)
     sass (3.2.1)
     sass-rails (3.2.5)
@@ -135,7 +143,9 @@ DEPENDENCIES
   jquery-rails
   mysql2
   pg (= 0.12.2)
+  railroad
   rails (= 3.2.8)
+  rails-erd
   rubyzip
   sass-rails (~> 3.2.3)
   sunspot_rails

@@ -22,7 +22,7 @@ class HomeController < ApplicationController
 	    @search = JobPost.search do
 	      fulltext params[:keywords]
 	      order_by :updated_at, :desc
-	      paginate :page => params[:page] || 1, :per_page => 5
+	      paginate :page => params[:page] || 1, :per_page => 3
 	    end
 	    @job_posts = @search.results
 		render(:template => "/resumes/home")
@@ -35,7 +35,7 @@ class HomeController < ApplicationController
 	    @search = Resume.search do
 	      fulltext params[:keywords]
 	      order_by :updated_at, :desc
-	      paginate :page => params[:page] || 1, :per_page => 5
+	      paginate :page => params[:page] || 1, :per_page => 3
 	    end
 	    @resumes = @search.results
 		render(:template => "/job_posts/home")

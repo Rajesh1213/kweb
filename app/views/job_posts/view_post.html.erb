@@ -36,7 +36,8 @@
 </p>
 
 
-<%= link_to 'Edit', edit_job_description_path(@job_post) %> |
+<%#= link_to 'Edit', edit_job_description_path(@job_post) %>
+<a href="/job_posts/edit/<%= @job_post.id %>">Edit</a> |
 <%= link_to 'Back', post_job_description_path %>
 
 </div>
