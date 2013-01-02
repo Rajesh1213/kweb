@@ -1,9 +1,10 @@
 <%=stylesheet_link_tag 'profiles' %>
 <div class="form-horizontal" style="padding: 20px; border: 1px solid #ccc; -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
 	<%= form_tag root_path, :method => :get do %>
-	<%= label_tag "Search" %>
+	<%= label_tag "Search" %> <div style="font-size: 10px; color: gray;">Search jobs as per your requirement.</div>
 	<%= text_field_tag 'keywords',nil,  :size => 40, :maxlength => 50, :placeholder => 'Keywords' %>
-	<%= submit_tag 'Search', :class=> 'btn btn-success' %>
+	<%= submit_tag 'Search', :class=> 'btn btn-success' %><br/><br/>
+	<div style="font-size: 10px; color: gray;">Related latest job posts</div>	
 	<div>
 		<% i = 0
 		@job_posts.each do |job| %>

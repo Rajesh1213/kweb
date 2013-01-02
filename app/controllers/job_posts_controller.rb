@@ -105,7 +105,7 @@ class JobPostsController < ApplicationController
   end
 
   def view_all_posts
-    @job_posts = current_user.job_posts
+    @job_posts = current_user.job_posts.order("id desc")
   end
     
 end

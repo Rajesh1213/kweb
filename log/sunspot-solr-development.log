@@ -1517,3 +1517,35 @@ INFO: [] webapp=/solr path=/select params={sort=updated_at_d+desc&start=0&q=*:*&
 INFO: [] webapp=/solr path=/select params={sort=updated_at_d+desc&start=0&q=*:*&wt=ruby&fq=type:JobPost&rows=5} hits=2 status=0 QTime=1 
 2 Jan, 2013 11:07:01 AM org.apache.solr.core.SolrCore execute
 INFO: [] webapp=/solr path=/select params={sort=updated_at_d+desc&start=0&q=*:*&wt=ruby&fq=type:JobPost&rows=5} hits=2 status=0 QTime=0 
+2 Jan, 2013 12:25:19 PM org.apache.solr.core.SolrCore execute
+INFO: [] webapp=/solr path=/select params={sort=updated_at_d+desc&start=0&q=*:*&wt=ruby&fq=type:JobPost&rows=5} hits=2 status=0 QTime=1 
+2 Jan, 2013 12:25:27 PM org.apache.solr.core.SolrCore execute
+INFO: [] webapp=/solr path=/select params={sort=updated_at_d+desc&start=0&q=*:*&wt=ruby&fq=type:JobPost&rows=5} hits=2 status=0 QTime=1 
+2 Jan, 2013 12:25:29 PM org.apache.solr.core.SolrCore execute
+INFO: [] webapp=/solr path=/select params={sort=updated_at_d+desc&fl=*+score&start=0&q=Ruby+on+Rails&qf=company_name_text+city_text+job_description_text+job_position_text&wt=ruby&fq=type:JobPost&defType=dismax&rows=5} hits=1 status=0 QTime=4 
+2 Jan, 2013 12:28:53 PM org.apache.solr.core.SolrCore execute
+INFO: [] webapp=/solr path=/select params={sort=updated_at_d+desc&start=0&q=*:*&wt=ruby&fq=type:JobPost&rows=5} hits=2 status=0 QTime=1 
+2 Jan, 2013 12:29:04 PM org.apache.solr.core.SolrCore execute
+INFO: [] webapp=/solr path=/select params={sort=updated_at_d+desc&start=0&q=*:*&wt=ruby&fq=type:JobPost&rows=5} hits=2 status=0 QTime=1 
+2 Jan, 2013 12:29:42 PM org.apache.solr.core.SolrCore execute
+INFO: [] webapp=/solr path=/select params={sort=updated_at_d+desc&fl=*+score&start=0&q=Ruby+on+Rails&qf=company_name_text+city_text+job_description_text+job_position_text&wt=ruby&fq=type:JobPost&defType=dismax&rows=5} hits=1 status=0 QTime=3 
+2 Jan, 2013 12:30:30 PM org.apache.solr.core.SolrCore execute
+INFO: [] webapp=/solr path=/select params={sort=updated_at_d+desc&fl=*+score&start=0&q=Ruby+on+Rails&qf=company_name_text+city_text+job_description_text+job_position_text&wt=ruby&fq=type:JobPost&defType=dismax&rows=5} hits=1 status=0 QTime=3 
+2 Jan, 2013 12:31:57 PM org.apache.solr.core.SolrCore execute
+INFO: [] webapp=/solr path=/select params={sort=updated_at_d+desc&fl=*+score&start=0&q=Ruby+on+Rails&qf=company_name_text+city_text+job_description_text+job_position_text&wt=ruby&fq=type:JobPost&defType=dismax&rows=5} hits=1 status=0 QTime=2 
+2 Jan, 2013 12:33:43 PM org.apache.solr.core.SolrCore execute
+INFO: [] webapp=/solr path=/select params={sort=updated_at_d+desc&fl=*+score&start=0&q=Ruby+on+Rails&qf=company_name_text+city_text+job_description_text+job_position_text&wt=ruby&fq=type:JobPost&defType=dismax&rows=5} hits=1 status=0 QTime=3 
+2 Jan, 2013 12:34:14 PM org.apache.solr.core.SolrCore execute
+INFO: [] webapp=/solr path=/select params={sort=updated_at_d+desc&fl=*+score&start=0&q=Ruby+on+Rails&qf=company_name_text+city_text+job_description_text+job_position_text&wt=ruby&fq=type:JobPost&defType=dismax&rows=5} hits=1 status=0 QTime=1 
+2 Jan, 2013 12:34:26 PM org.apache.solr.core.SolrCore execute
+INFO: [] webapp=/solr path=/select params={sort=updated_at_d+desc&fl=*+score&start=0&q=Ruby+on+Rails&qf=company_name_text+city_text+job_description_text+job_position_text&wt=ruby&fq=type:JobPost&defType=dismax&rows=5} hits=1 status=0 QTime=2 
+2 Jan, 2013 12:38:49 PM org.apache.solr.core.SolrCore execute
+INFO: [] webapp=/solr path=/select params={sort=updated_at_d+desc&start=0&q=*:*&wt=ruby&fq=type:Resume&rows=5} hits=6 status=0 QTime=0 
+2 Jan, 2013 12:42:21 PM org.apache.solr.core.SolrCore execute
+INFO: [] webapp=/solr path=/select params={sort=updated_at_d+desc&fl=*+score&start=0&q=Technical+Architect+-+Ruby+on+Rails+Sales+and+Marketing+Executive&qf=address_text+address_city_text+company_location_text+designation_text+resume_content_text+skills_text+summary_text+technology_text+highest_degree_text&wt=ruby&fq=type:Resume&defType=dismax&rows=5} hits=0 status=0 QTime=30 
+2 Jan, 2013 12:42:39 PM org.apache.solr.core.SolrCore execute
+INFO: [] webapp=/solr path=/select params={sort=updated_at_d+desc&fl=*+score&start=0&q=Technical+Architect+-+Ruby+on+Rails&q=Sales+and+Marketing+Executive&qf=address_text+address_city_text+company_location_text+designation_text+resume_content_text+skills_text+summary_text+technology_text+highest_degree_text&wt=ruby&fq=type:Resume&defType=dismax&rows=5} hits=0 status=0 QTime=18 
+2 Jan, 2013 12:48:56 PM org.apache.solr.core.SolrCore execute
+INFO: [] webapp=/solr path=/select params={sort=updated_at_d+desc&fl=*+score&start=0&q=#<ActiveRecord::Relation:0x007f6e7c995290>&qf=address_text+address_city_text+company_location_text+designation_text+resume_content_text+skills_text+summary_text+technology_text+highest_degree_text&wt=ruby&fq=type:Resume&defType=dismax&rows=5} hits=0 status=0 QTime=20 
+2 Jan, 2013 12:51:46 PM org.apache.solr.core.SolrCore execute
+INFO: [] webapp=/solr path=/select params={sort=updated_at_d+desc&fl=*+score&start=0&q=Technical+Architect+-+Ruby+on+Rails&qf=address_text+address_city_text+company_location_text+designation_text+resume_content_text+skills_text+summary_text+technology_text+highest_degree_text&wt=ruby&fq=type:Resume&defType=dismax&rows=5} hits=0 status=0 QTime=7 

@@ -16,6 +16,9 @@ class HomeController < ApplicationController
 	protected
 
 	def job_seeker_home
+		if !current_user.resume.blank? and !params.include? "keywords"
+		  params[:keywords] = current_user.resume.technology
+		end
 	    @search = JobPost.search do
 	      fulltext params[:keywords]
 	      order_by :updated_at, :desc
@@ -26,6 +29,9 @@ class HomeController < ApplicationController
 	end
 
 	def recruiter_home
+		# if !current_user.job_posts.blank? and !params.include? "keywords"
+		#   params[:keywords] = current_user.job_posts.order("id desc").limit(1)[0].job_position
+		# end
 	    @search = Resume.search do
 	      fulltext params[:keywords]
 	      order_by :updated_at, :desc

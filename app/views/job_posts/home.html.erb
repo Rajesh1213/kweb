@@ -8,6 +8,7 @@
     <%= text_field_tag 'keywords',nil,  :size => 40, :maxlength => 50, :placeholder => "Keywords" %>
   <% end %>
   <%= submit_tag 'Search', :class=> 'btn btn-success' %><br/><br/>
+  <div style="font-size: 10px; color: gray;">latest updated candidates</div> 
   <div>
     <% i = 0
     @resumes.each do |resume| %>
